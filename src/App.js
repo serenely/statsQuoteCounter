@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Homepage } from './pages/Homepage/Homepage';
+import { WebSocketProvider } from './provider/useWebSocketProvider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WebSocketProvider url={'wss://trade.termplat.com:8800/?password=1234'}>
+        <div className="App">
+          <Homepage/>
+        </div>
+    </WebSocketProvider>
+
+
   );
 }
 
